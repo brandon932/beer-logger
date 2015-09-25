@@ -28,13 +28,27 @@ app.controller("BeerController", function($scope, httpFactory){
       console.log(response.data);
       getBeers("/api/v1/beers");
     });
+  };
+  $scope.getBeer = function(id){
+    console.log("get beer");
+    httpFactory.get('/api/v1/beer/'+ id)
+    .then(function(response){
+      console.log(response.data);
+      $scope.editBeer = response.data;
+    });
 
-    $scope.editBeer = function(id){
-      console.log("editBeer");
+  };
 
-    };
-
-
+  $scope.updateBeer = function(id){
+    console.log("edit beers");
+    var payload = $scope.editBeer;
+    httpFactory.put('/api/v1/beer/'+ id, payload)
+    .then(function(response){
+      $scope.editBeer = {};
+      $scope.success= true;
+      $scope.message= "Updated beer!";
+      getBeers("/api/v1/beers");
+    });
   };
 
 

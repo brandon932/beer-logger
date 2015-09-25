@@ -51,13 +51,29 @@
             <td>{{beer.type}}</td>
             <td>{{beer.abv}}</td>
             <td>
-              <button  type="button" class="btn btn-primary" name="button"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button ng-click="getBeer(beer._id)" type="button" class="btn btn-primary" name="button"><span class="glyphicon glyphicon-pencil"></span></button>
               <button ng-click="deleteBeer(beer._id)" type="button" class="btn btn-danger" name="button"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+
+      <h2 class="text-center">Edit Beer</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="editBeer.name" placeholder="Enter the beer name" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="editBeer.type" placeholder="Enter the beer type" required>
+      </div>
+      <div class="form-group">
+        <input type="number" step="0.1" class="form-control" ng-model="editBeer.abv" placeholder="Enter the beer abv" required>
+      </div>
+      <button type="submit" ng-click="updateBeer(editBeer._id)" class="btn btn-primary btn-block">Edit Beer</button>
+    </form>
+
+  </div>
 
 
   </div>
