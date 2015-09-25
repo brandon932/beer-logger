@@ -50,6 +50,10 @@
             <td>{{beer.name}}</td>
             <td>{{beer.type}}</td>
             <td>{{beer.abv}}</td>
+            <td>
+              <button  type="button" class="btn btn-primary" name="button"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button ng-click="deleteBeer(beer._id)" type="button" class="btn btn-danger" name="button"><span class="glyphicon glyphicon-remove"></span></button>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -21,4 +21,21 @@ app.controller("BeerController", function($scope, httpFactory){
       $timeout(messageTimeout, 5000);
     });
   };
+
+  $scope.deleteBeer = function(id){
+    httpFactory.delete('/api/v1/beer/'+ id)
+    .then(function(response){
+      console.log(response.data);
+      getBeers("/api/v1/beers");
+    });
+
+    $scope.editBeer = function(id){
+      console.log("editBeer");
+
+    };
+
+
+  };
+
+
 });
