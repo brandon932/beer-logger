@@ -36,6 +36,7 @@ app.controller("BeerController", function($scope, httpFactory){
       console.log(response.data);
       $scope.editBeer = response.data;
     });
+    $scope.show = true;
 
   };
 
