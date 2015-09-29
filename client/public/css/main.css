@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*background-color:rgba(85, 114, 238, 0.65);*/
 }
 
 a {
@@ -9,4 +10,9 @@ a {
 
 .container {
   max-width: 500px;
+}
+
+.btn-bar{
+  width: 48%;
+  align-items: center;
 }
