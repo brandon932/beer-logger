@@ -1,4 +1,4 @@
-app.controller("BeerController", function($scope, httpFactory){
+app.controller("BeerController", function($scope ,$timeout, httpFactory){
   $scope.beer = {};
   getBeers = function(url){
     httpFactory.get(url)
@@ -8,6 +8,11 @@ app.controller("BeerController", function($scope, httpFactory){
   };
 
   getBeers("/api/v1/beers");
+
+function messageTimeout(){
+  $scope.success = false;
+}
+document.cookie ="hello world";
 
   $scope.postBeer = function(){
     console.log("beer");
@@ -26,6 +31,7 @@ app.controller("BeerController", function($scope, httpFactory){
     httpFactory.delete('/api/v1/beer/'+ id)
     .then(function(response){
       console.log(response.data);
+      $timeout(messageTimeout, 5000);
       getBeers("/api/v1/beers");
     });
   };
@@ -48,6 +54,7 @@ app.controller("BeerController", function($scope, httpFactory){
       $scope.editBeer = {};
       $scope.success= true;
       $scope.message= "Updated beer!";
+      $timeout(messageTimeout, 5000);
       getBeers("/api/v1/beers");
     });
   };
